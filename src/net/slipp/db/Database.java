@@ -13,7 +13,9 @@ public class Database {
 		users.put(user.getUserId(), user);
 		
 	}
-	
-	
+
+	public static User findByUserId(String userId) {
+		return users.get(userId);
+	}
 	
 }
