@@ -52,5 +52,26 @@ public class UserDAO {
 				rs.getString("email"));
 		
 	}
+
+	public void removeUser(String userId) throws SQLException {
+		// TODO Auto-generated method stub
+		String sql = "delete from USERS where userId = ?";
+		PreparedStatement pstmt = getConnection().prepareStatement(sql);
+		pstmt.setString(1,  userId);
+		
+		pstmt.executeUpdate();
+	}
+
+	public void updateUser(User user) throws SQLException {
+		String sql = "update USERS set password = ?, name = ?, email = ? where userId = ?";
+		PreparedStatement pstmt = getConnection().prepareStatement(sql);
+		pstmt.setString(1, user.getPassword());
+		pstmt.setString(2, user.getName());
+		pstmt.setString(3, user.getEmail());
+		pstmt.setString(4, user.getUserId());
+		
+		pstmt.executeUpdate();
+		
+	}
 	
 }
