@@ -4,13 +4,11 @@
 <html>
 <head>
 
-<%@ include file="/commons/_head.jspf" %>
-
-
+<%@ include file="./commons/_head.jspf" %>
 
 </head>
 <body>
-	<%@ include file="/commons/_top.jspf" %>
+    <%@ include file="./commons/_top.jspf" %>
 
 	<div class="container">
 		<div class="row">
@@ -19,9 +17,14 @@
 				<div class="page-header">
 					<h1>로그인</h1>
 				</div>
-			
 				
-				<form class="form-horizontal" action="/form_action.jsp" method="post">
+				<form class="form-horizontal" action="/login_action.jsp" method="post">
+					<c:if test="${not empty errorMessage}">
+					<div class="control-group">
+						<label class="error">${errorMessage}</label>
+					</div>
+					</c:if>
+					
 					<div class="control-group">
 						<label class="control-label" for="userId">사용자 아이디</label>
 						<div class="controls">
@@ -35,20 +38,8 @@
 						</div>
 					</div>
 					<div class="control-group">
-						<label class="control-label" for="name">이름</label>
 						<div class="controls">
-							<input type="text" id="name" name="name" value="" placeholder="">
-						</div>
-					</div>
-					<div class="control-group">
-						<label class="control-label" for="email">이메일</label>
-						<div class="controls">
-							<input type="text" id="email" name="email" value="" placeholder="">
-						</div>
-					</div>
-					<div class="control-group">
-						<div class="controls">
-							<button type="submit" class="btn btn-primary">회원가입</button>
+							<button type="submit" class="btn btn-primary">로그인</button>
 						</div>
 					</div>
 				</form>
