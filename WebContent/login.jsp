@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -17,19 +18,12 @@
 				<div class="page-header">
 					<h1>로그인</h1>
 				</div>
-				
-				<form class="form-horizontal" action="/login_action.jsp" method="post">
-					<%
-					Object errorMessage = request.getAttribute("errorMessage");
-					if(errorMessage != null){
-					%>
+				<form class="form-horizontal" action="/users/login" method="post">
+					<c:if test="${not empty errorMessage}">
 					<div class="control-group">
-						<label class="error"><%= errorMessage %></label>
+						<label class="error">${errorMessage}</label>
 					</div>
-					<%
-					}
-					%>
-					
+					</c:if>
 					<div class="control-group">
 						<label class="control-label" for="userId">사용자 아이디</label>
 						<div class="controls">
