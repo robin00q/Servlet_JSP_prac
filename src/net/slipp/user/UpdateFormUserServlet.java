@@ -27,7 +27,7 @@ public class UpdateFormUserServlet extends HttpServlet {
 		try {
 			User user = userDao.findByUserId(userId);
 			req.setAttribute("user",  user);
-			RequestDispatcher rd = req.getRequestDispatcher("/update_form.jsp");
+			RequestDispatcher rd = req.getRequestDispatcher("/form.jsp");
 			rd.forward(req, resp);
 		} catch (Exception e) {
 		}
