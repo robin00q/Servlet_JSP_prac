@@ -6,8 +6,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class UserDAO {
 
+	final static Logger logger = LoggerFactory.getLogger(UserDAO.class);
+	
 	public Connection getConnection() {
 		
 		String url = "jdbc:mysql://localhost:3306/slipp_dev?serverTimezone=Asia/Seoul";
@@ -18,7 +23,9 @@ public class UserDAO {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			return DriverManager.getConnection(url, id, pw);
 		} catch (Exception e){
-			System.out.println(e.getMessage());
+			logger.debug("{}" + e.getMessage());
+			
+//			System.out.println(e.getMessage());
 			return null;
 		}
 	}

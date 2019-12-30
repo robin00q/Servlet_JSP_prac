@@ -87,10 +87,20 @@
 			<version>1.2</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.2.3</version>
+			<scope>test</scope>
+		</dependency>
+
 
 	</dependencies>
 
 	<build>
+		<finalName>qna</finalName>
+
 		<sourceDirectory>src</sourceDirectory>
 		<testSourceDirectory>test</testSourceDirectory>
 		<outputDirectory>webapp/WEB-INF/classes</outputDirectory>
@@ -117,7 +127,7 @@
 					<wtpContextName>/</wtpContextName>
 				</configuration>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
@@ -129,7 +139,7 @@
 					<overWriteIfNewer>true</overWriteIfNewer>
 				</configuration>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>

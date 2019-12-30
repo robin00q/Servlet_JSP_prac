@@ -1,52 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project-modules id="moduleCoreId" project-version="2.0">
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
   <wb-module deploy-name="qna">
     <property name="context-root" value="/"/>
-    <wb-resource deploy-path="/" source-path="webapp"/>
     <property name="java-output-path" value="/webapp/WEB-INF/classes"/>
+        <wb-resource deploy-path="/" source-path="webapp"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="src"/>
     <dependent-module archiveName="gson-2.3.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/com/google/code/gson/gson/2.3/gson-2.3.jar">
-      <dependency-type>uses</dependency-type>
-    </dependent-module>
-    <dependent-module archiveName="tomcat-embed-core-8.0.14.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/apache/tomcat/embed/tomcat-embed-core/8.0.14/tomcat-embed-core-8.0.14.jar">
-      <dependency-type>uses</dependency-type>
-    </dependent-module>
-    <dependent-module archiveName="tomcat-embed-logging-juli-8.0.14.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/apache/tomcat/embed/tomcat-embed-logging-juli/8.0.14/tomcat-embed-logging-juli-8.0.14.jar">
-      <dependency-type>uses</dependency-type>
-    </dependent-module>
-    <dependent-module archiveName="tomcat-embed-jasper-8.0.14.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/apache/tomcat/embed/tomcat-embed-jasper/8.0.14/tomcat-embed-jasper-8.0.14.jar">
-      <dependency-type>uses</dependency-type>
-    </dependent-module>
-    <dependent-module archiveName="tomcat-embed-el-8.0.14.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/apache/tomcat/embed/tomcat-embed-el/8.0.14/tomcat-embed-el-8.0.14.jar">
-      <dependency-type>uses</dependency-type>
-    </dependent-module>
-    <dependent-module archiveName="ecj-4.4.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/eclipse/jdt/core/compiler/ecj/4.4/ecj-4.4.jar">
-      <dependency-type>uses</dependency-type>
-    </dependent-module>
-    <dependent-module archiveName="tomcat-jasper-8.0.14.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/apache/tomcat/tomcat-jasper/8.0.14/tomcat-jasper-8.0.14.jar">
-      <dependency-type>uses</dependency-type>
-    </dependent-module>
-    <dependent-module archiveName="tomcat-servlet-api-8.0.14.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/apache/tomcat/tomcat-servlet-api/8.0.14/tomcat-servlet-api-8.0.14.jar">
-      <dependency-type>uses</dependency-type>
-    </dependent-module>
-    <dependent-module archiveName="tomcat-juli-8.0.14.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/apache/tomcat/tomcat-juli/8.0.14/tomcat-juli-8.0.14.jar">
-      <dependency-type>uses</dependency-type>
-    </dependent-module>
-    <dependent-module archiveName="tomcat-jsp-api-8.0.14.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/apache/tomcat/tomcat-jsp-api/8.0.14/tomcat-jsp-api-8.0.14.jar">
-      <dependency-type>uses</dependency-type>
-    </dependent-module>
-    <dependent-module archiveName="tomcat-el-api-8.0.14.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/apache/tomcat/tomcat-el-api/8.0.14/tomcat-el-api-8.0.14.jar">
-      <dependency-type>uses</dependency-type>
-    </dependent-module>
-    <dependent-module archiveName="tomcat-jasper-el-8.0.14.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/apache/tomcat/tomcat-jasper-el/8.0.14/tomcat-jasper-el-8.0.14.jar">
-      <dependency-type>uses</dependency-type>
-    </dependent-module>
-    <dependent-module archiveName="tomcat-api-8.0.14.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/apache/tomcat/tomcat-api/8.0.14/tomcat-api-8.0.14.jar">
-      <dependency-type>uses</dependency-type>
-    </dependent-module>
-    <dependent-module archiveName="tomcat-util-scan-8.0.14.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/apache/tomcat/tomcat-util-scan/8.0.14/tomcat-util-scan-8.0.14.jar">
-      <dependency-type>uses</dependency-type>
-    </dependent-module>
-    <dependent-module archiveName="tomcat-util-8.0.14.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/apache/tomcat/tomcat-util/8.0.14/tomcat-util-8.0.14.jar">
       <dependency-type>uses</dependency-type>
     </dependent-module>
     <dependent-module archiveName="mysql-connector-java-8.0.18.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar">
@@ -58,6 +16,5 @@
     <dependent-module archiveName="jstl-1.2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/jstl/jstl/1.2/jstl-1.2.jar">
       <dependency-type>uses</dependency-type>
     </dependent-module>
-    <wb-resource deploy-path="/WEB-INF/classes" source-path="src"/>
   </wb-module>
 </project-modules>
