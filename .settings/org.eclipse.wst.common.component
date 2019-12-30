@@ -2,7 +2,7 @@
 <project-modules id="moduleCoreId" project-version="2.0">
   <wb-module deploy-name="qna">
     <property name="context-root" value="/"/>
-    <wb-resource deploy-path="/" source-path="src/main/webapp"/>
+    <wb-resource deploy-path="/" source-path="webapp"/>
     <property name="java-output-path" value="/webapp/WEB-INF/classes"/>
     <dependent-module archiveName="gson-2.3.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/com/google/code/gson/gson/2.3/gson-2.3.jar">
       <dependency-type>uses</dependency-type>

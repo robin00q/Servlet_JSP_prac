@@ -12,7 +12,7 @@ public class UserDAO {
 		
 		String url = "jdbc:mysql://localhost:3306/slipp_dev?serverTimezone=Asia/Seoul";
 		String id = "root";
-		String pw = "123123";
+		String pw = "qpqp1010P";
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
