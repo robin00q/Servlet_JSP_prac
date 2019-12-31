@@ -2,18 +2,18 @@ package net.slipp.support;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
-public abstract class JdbcTemplate {
-
-	public void executeUpdate(String sql) throws SQLException {
+public class JdbcTemplate {
+	public void executeUpdate(String sql, PreparedStatementSetter pss) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {
 			conn = ConnectionManager.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			setParameters(pstmt);
+			pss.setParameters(pstmt);
 			
 			pstmt.executeUpdate();
 		} finally {
@@ -27,5 +27,33 @@ public abstract class JdbcTemplate {
 		}
 	}
 	
-	public abstract void setParameters(PreparedStatement pstmt) throws SQLException;
+	public Object executeQuery(String sql, PreparedStatementSetter pss, RowMapper rm) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = ConnectionManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pss.setParameters(pstmt);
+			
+			rs = pstmt.executeQuery();
+			if(!rs.next()) {
+				return null;
+			}
+			
+			return rm.rowMap(rs);
+		} finally {
+			if(rs != null) {
+				rs.close();
+			}
+			if(pstmt != null) {
+				pstmt.close();
+			}
+			if(conn != null) {
+				conn.close();
+			}
+		}
+	}
+	
 }
