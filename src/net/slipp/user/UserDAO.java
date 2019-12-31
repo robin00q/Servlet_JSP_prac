@@ -1,7 +1,5 @@
 package net.slipp.user;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,28 +8,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import net.slipp.support.JdbcTemplate;
+import net.slipp.support.SelectJdbcTemplate;
 
 public class UserDAO {
 
 	final static Logger logger = LoggerFactory.getLogger(UserDAO.class);
-	
-	public Connection getConnection() {
-		
-		String url = "jdbc:mysql://localhost:3306/slipp_dev?serverTimezone=Asia/Seoul";
-		String id = "root";
-		String pw = "qpqp1010P";
-		
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			return DriverManager.getConnection(url, id, pw);
-		} catch (Exception e){
-			logger.debug("{}" + e.getMessage());
-			
-			return null;
-		}
-	}
-	
-
 
 	public void addUser(User user) throws SQLException {
 		JdbcTemplate template = new JdbcTemplate() {
@@ -75,38 +56,30 @@ public class UserDAO {
 	}
 	
 	public User findByUserId(String userId) throws SQLException {
+		SelectJdbcTemplate template = new SelectJdbcTemplate() {
+
+			public void setParameters(PreparedStatement pstmt) throws SQLException {
+				pstmt.setString(1,  userId);
+				
+			}
+
+			public User rowMap(ResultSet rs) throws SQLException {
+				if(!rs.next()) {
+					return null;
+				}
+				
+				return new User(
+						rs.getString("userId"),
+						rs.getString("password"),
+						rs.getString("name"),
+						rs.getString("email"));
+			}
+			
+		};
+		
 		String sql = "select * from USERS where userId = ?";
-		
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		
-		try {
-			pstmt = getConnection().prepareStatement(sql);
-			pstmt.setString(1,  userId);
-			
-			rs = pstmt.executeQuery();
-			
-			if(!rs.next()) {
-				return null;
-			}
-			
-			return new User(
-					rs.getString("userId"),
-					rs.getString("password"),
-					rs.getString("name"),
-					rs.getString("email"));
-		} finally {
-			if(rs != null) {
-				rs.close();
-			}
-			if(pstmt != null) {
-				pstmt.close();
-			}
-			if(conn != null) {
-				conn.close();
-			}
-		}
+		return (User)template.executeQuery(sql);
 	}
+
 	
 }
