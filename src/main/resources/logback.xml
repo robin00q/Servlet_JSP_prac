@@ -8,7 +8,7 @@
     </encoder>
   </appender>
   
-  <looger name="net.slipp" level="DEBUG"/>
+  <logger name="net.slipp" level="DEBUG"/>
 
   <root level="WARN">
     <appender-ref ref="STDOUT" />
