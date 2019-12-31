@@ -35,11 +35,7 @@ public class UpdateUserServlet extends HttpServlet{
 		
 		User user = new User(userId, password, name, email);
 		UserDAO userDAO = new UserDAO();
-		try {
-			userDAO.updateUser(user);			
-		} catch (SQLException e){
-			
-		}
+		userDAO.updateUser(user);			
 		
 		
 		
